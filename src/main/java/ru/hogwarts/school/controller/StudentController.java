@@ -37,7 +37,6 @@ public class StudentController {
     public void deleteStudent(@PathVariable(name = "id") long id){
         studentService.remove(id);
     }
-
     @GetMapping
     public ResponseEntity<Collection<Student>> findStudents(@RequestParam(required = false) int age) {
         if (age > 0) {
@@ -45,7 +44,5 @@ public class StudentController {
         }
         return ResponseEntity.ok(Collections.emptyList());
     }
-
-
 
 }
