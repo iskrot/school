@@ -3,7 +3,7 @@ package ru.hogwarts.school.controller;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import ru.hogwarts.school.model.Student;
-import ru.hogwarts.school.model.service.StudentService;
+import ru.hogwarts.school.service.StudentService;
 
 import java.util.Collection;
 import java.util.Collections;
@@ -19,8 +19,8 @@ public class StudentController {
     }
 
     @PostMapping
-    public void addStudent(@RequestBody Student student){
-        studentService.add(student);
+    public Student addStudent(@RequestBody Student student){
+        return studentService.add(student);
     }
 
     @GetMapping("/{id}")
@@ -29,8 +29,8 @@ public class StudentController {
     }
 
     @PutMapping
-    public void putStudent(@RequestBody Student student){
-        studentService.put(student);
+    public Student putStudent(@RequestBody Student student){
+        return studentService.put(student);
     }
 
     @DeleteMapping("/{id}")
@@ -45,5 +45,7 @@ public class StudentController {
         }
         return ResponseEntity.ok(Collections.emptyList());
     }
+
+
 
 }
