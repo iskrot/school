@@ -3,7 +3,7 @@ package ru.hogwarts.school.controller;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import ru.hogwarts.school.model.Faculty;
-import ru.hogwarts.school.model.service.FacultyService;
+import ru.hogwarts.school.service.FacultyService;
 
 import java.util.Collection;
 import java.util.Collections;
@@ -18,8 +18,8 @@ public class FacultyController {
     }
 
     @PostMapping
-    public void addFaculty(@RequestBody Faculty faculty){
-        facultyService.add(faculty);
+    public Faculty addFaculty(@RequestBody Faculty faculty){
+        return facultyService.add(faculty);
     }
 
     @GetMapping("/{id}")
@@ -28,8 +28,8 @@ public class FacultyController {
     }
 
     @PutMapping
-    public void putFaculty(@RequestBody Faculty faculty){
-        facultyService.put(faculty);
+    public Faculty putFaculty(@RequestBody Faculty faculty){
+        return facultyService.put(faculty);
     }
 
     @DeleteMapping("/{id}")
@@ -44,4 +44,6 @@ public class FacultyController {
         }
         return ResponseEntity.ok(Collections.emptyList());
     }
+
+
 }
