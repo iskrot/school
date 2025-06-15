@@ -1,11 +1,15 @@
 package ru.hogwarts.school.model;
 
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.JsonIdentityReference;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import jakarta.persistence.*;
 
 import java.util.Collection;
 import java.util.Objects;
 
-@Entity(name = "Faculty")
+@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
+@Entity()
 public class Faculty {
 
 
@@ -15,7 +19,8 @@ public class Faculty {
     private String name;
     private String color;
 
-    @OneToMany(mappedBy = "faculty")
+
+    @OneToMany(mappedBy = "faculty", fetch = FetchType.LAZY)
     private Collection<Student> students;
 
     public Faculty() {

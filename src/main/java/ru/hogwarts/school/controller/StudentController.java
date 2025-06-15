@@ -20,23 +20,21 @@ public class StudentController {
     }
 
 
-
     @PostMapping
-    public Student addStudent(@RequestBody Student student){
+    public Student addStudent(@RequestBody Student student) {
         return studentService.add(student);
     }
 
 
-
     @GetMapping("/{id}")
-    public Student getStudent(@PathVariable(name = "id") long id){
+    public Student getStudent(@PathVariable(name = "id") long id) {
         return studentService.get(id);
     }
 
     @GetMapping
     public ResponseEntity<Collection<Student>> findStudents(@RequestParam(required = false) Integer age) {
         System.out.println(age);
-        if (age == null){
+        if (age == null) {
             return ResponseEntity.ok(studentService.getAllStudents());
         }
         if (age > 0) {
@@ -48,31 +46,26 @@ public class StudentController {
     }
 
     @GetMapping("/getMinToMax")
-    public ResponseEntity<Collection<Student>> getMinToMax(@RequestParam int min, @RequestParam int max){
+    public ResponseEntity<Collection<Student>> getMinToMax(@RequestParam int min, @RequestParam int max) {
         return ResponseEntity.ok(studentService.findByAgeBetween(min, max));
     }
 
     @GetMapping("/{id}/getFaculty")
-    public Faculty getFaculty(@PathVariable(name = "id") long id){
+    public Faculty getFaculty(@PathVariable(name = "id") long id) {
         return studentService.get(id).getFaculty();
     }
 
 
-
     @PutMapping
-    public Student putStudent(@RequestBody Student student){
+    public Student putStudent(@RequestBody Student student) {
         return studentService.put(student);
     }
 
 
-
     @DeleteMapping("/{id}")
-    public void deleteStudent(@PathVariable(name = "id") long id){
+    public void deleteStudent(@PathVariable(name = "id") long id) {
         studentService.remove(id);
     }
-
-
-
 
 
 }
