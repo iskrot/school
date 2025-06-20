@@ -5,6 +5,7 @@ import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
+import lombok.*;
 
 import java.util.Objects;
 
@@ -19,10 +20,13 @@ public class Student {
     private String name;
     private Integer age;
 
-    @JsonManagedReference
+
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "faculty_id")
     private Faculty faculty;
+
+    @OneToOne
+    private Avatar avatar;
 
     public Student() {
     }
@@ -79,7 +83,7 @@ public class Student {
     }
 
 
-    @JsonBackReference
+    @JsonIgnore
     public Faculty getFaculty() {
         return faculty;
     }
@@ -94,5 +98,14 @@ public class Student {
 
     public void setFaculty(Faculty faculty) {
         this.faculty = faculty;
+    }
+
+    @JsonIgnore
+    public Avatar getAvatar() {
+        return avatar;
+    }
+
+    public void setAvatar(Avatar avatar) {
+        this.avatar = avatar;
     }
 }
