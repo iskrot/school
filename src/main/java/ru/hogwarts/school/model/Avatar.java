@@ -10,7 +10,6 @@ import org.springframework.beans.factory.annotation.Value;
 @Entity
 public class Avatar {
 
-
     private String filePath;
 
     private long fileSize;
