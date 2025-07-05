@@ -1,6 +1,7 @@
 package ru.hogwarts.school.service;
 
 import jakarta.transaction.Transactional;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
@@ -31,6 +32,9 @@ public class AvatarService {
     @Value("${students.avatars.dir.pach}")
     private String avatarsDir;
 
+    public AvatarService(){}
+
+    @Autowired
     public AvatarService(AvatarRepository avatarRepository, StudentService studentService) {
         this.avatarRepository = avatarRepository;
         this.studentService = studentService;

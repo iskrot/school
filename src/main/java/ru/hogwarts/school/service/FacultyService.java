@@ -14,7 +14,9 @@ import java.util.stream.Collectors;
 public class FacultyService {
 
 
-    private final FacultyRepository facultyRepository;
+    private  FacultyRepository facultyRepository;
+
+    public FacultyService(){}
 
     @Autowired
     public FacultyService(FacultyRepository facultyRepository) {
