@@ -12,12 +12,14 @@ import java.util.Collection;
 public class StudentService {
 
 
-    private final StudentRepository studentRepositories;
+    private StudentRepository studentRepositories;
 
     @Autowired
     public StudentService(StudentRepository studentRepositories) {
         this.studentRepositories = studentRepositories;
     }
+
+    public StudentService(){}
 
     public Collection<Student> getAllStudents() {
         return studentRepositories.findAll();
