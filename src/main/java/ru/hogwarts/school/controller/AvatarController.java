@@ -62,8 +62,8 @@ public class AvatarController {
         return ResponseEntity.status(200).headers(headers).body(file);
     }
 
-    @GetMapping(value = "/student/avatars")
-    public ResponseEntity<List<Avatar>> getAll(@RequestParam Integer size, @RequestParam Integer number) {
+    @GetMapping("/student/avatars")
+    public List<Avatar> getAll(@RequestParam Integer size, @RequestParam Integer number) {
         List<Avatar> list = new ArrayList<>();
         List<Avatar> avatarList = avatarService.getAll(size, number);
 
@@ -74,9 +74,7 @@ public class AvatarController {
             }
             list.add(avatar);
         }
-        if (list == new ArrayList<Avatar>()) {
-            return new ResponseEntity("аватарок не найдено", HttpStatusCode.valueOf(404));
-        }
-        return new ResponseEntity<>(list,HttpStatusCode.valueOf(200));
+
+        return list;
     }
 }
