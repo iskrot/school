@@ -1,5 +1,6 @@
 package ru.hogwarts.school.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -55,6 +56,7 @@ public class Avatar {
         this.mediaType = mediaType;
     }
 
+    @JsonIgnore
     public byte[] getData() {
         return data;
     }
