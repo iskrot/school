@@ -64,17 +64,6 @@ public class AvatarController {
 
     @GetMapping("/student/avatars")
     public List<Avatar> getAll(@RequestParam Integer size, @RequestParam Integer number) {
-        List<Avatar> list = new ArrayList<>();
-        List<Avatar> avatarList = avatarService.getAll(size, number);
-
-        for (Avatar i : avatarList) {
-            Avatar avatar = i;
-            if (avatar.getData() == null) {
-                continue;
-            }
-            list.add(avatar);
-        }
-
-        return list;
+        return avatarService.getAll(size, number);
     }
 }
