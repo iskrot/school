@@ -55,6 +55,21 @@ public class StudentController {
         return studentService.get(id).getFaculty();
     }
 
+    @GetMapping("/getCountAllStudent")
+    public Integer getCountAllStudent(){
+        return studentService.getCountAllStudent();
+    }
+
+    @GetMapping("/getAVGAgeStudent")
+    public Integer getAVGAgeAllStudent(){
+        return studentService.getAVGAgeAllStudent();
+    }
+
+    @GetMapping("/getLastFiveStudent")
+    public Collection<Student> getLastFiveStudent(){
+        return studentService.getLastFiveStudent();
+    }
+
 
     @PutMapping
     public Student putStudent(@RequestBody Student student) {
