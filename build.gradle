@@ -25,8 +25,8 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-data-jpa:3.4.5'
 	implementation group: 'org.liquibase', name: 'liquibase-core', version: '4.33.0'
 
-	compileOnly 'org.projectlombok:lombok:1.18.32' // Замените на актуальную версию
-	annotationProcessor 'org.projectlombok:lombok:1.18.32'
+	compileOnly 'org.projectlombok:lombok:1.18.38' // Замените на актуальную версию
+	annotationProcessor 'org.projectlombok:lombok:1.18.38'
 
 
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
